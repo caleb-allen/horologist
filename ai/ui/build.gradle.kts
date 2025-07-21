@@ -91,14 +91,16 @@ metalava {
 dependencies {
     api(projects.annotations)
 
-    api(libs.wearcompose.material)
+    api(libs.androidx.wear.compose.material3)
     api(libs.wearcompose.foundation)
     implementation(libs.compose.material.iconscore)
     implementation(libs.compose.material.iconsext)
     api(projects.composeLayout)
-    api(projects.composeMaterial)
 
     implementation(libs.androidx.wear)
+    implementation(libs.coil)
+    implementation(libs.coil.base)
+    implementation(libs.coil.svg)
 
     debugImplementation(projects.composeTools)
     debugImplementation(libs.compose.ui.tooling)
