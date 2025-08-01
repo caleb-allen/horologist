@@ -25,8 +25,8 @@ plugins {
 }
 
 android {
-    compileSdk = 35
 
+    compileSdk = 36
     defaultConfig {
         minSdk = 26
 
@@ -96,6 +96,9 @@ dependencies {
 
     api(libs.compose.runtime)
     api(libs.compose.ui)
+
+    implementation(projects.images.coil)
+//    implementation(projects.auth.composables)
 
     implementation(libs.compose.foundation.foundation)
     implementation(libs.compose.foundation.foundation.layout)
