@@ -24,9 +24,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.wear.compose.foundation.lazy.ScalingLazyListScope
-import com.google.android.horologist.auth.composables.R
+import com.google.android.horologist.auth.composables.material3.R
 import com.google.android.horologist.auth.composables.material3.models.AccountUiModel
-import com.google.android.horologist.auth.composables.screens.SignInPlaceholderScreen
+import com.google.android.horologist.auth.composables.material3.screens.SignInPlaceholderScreen
 import com.google.android.horologist.compose.layout.ScreenScaffold
 import com.google.android.horologist.compose.material.AlertContent
 
