@@ -25,7 +25,7 @@ import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Text
 import com.google.android.horologist.auth.composables.chips.GuestModeChip
 import com.google.android.horologist.auth.composables.chips.SignInChip
-import com.google.android.horologist.auth.composables.model.AccountUiModel
+import com.google.android.horologist.auth.composables.material3.models.AccountUiModel
 import com.google.android.horologist.screenshots.rng.WearLegacyScreenTest
 import org.junit.Test
 

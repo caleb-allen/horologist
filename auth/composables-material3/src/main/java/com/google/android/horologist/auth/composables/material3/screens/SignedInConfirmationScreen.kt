@@ -16,10 +16,7 @@
 
 package com.google.android.horologist.auth.composables.material3.screens
 
-import android.R.attr.maxLines
-import android.R.attr.name
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,10 +24,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.MaterialShapes
@@ -52,21 +46,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.dialog.DialogDefaults
-import androidx.wear.compose.material3.ButtonDefaults
-import androidx.wear.compose.material3.ConfirmationDialog
-import androidx.wear.compose.material3.ConfirmationDialogDefaults
 import androidx.wear.compose.material3.Dialog
-import androidx.wear.compose.material3.FilledTonalButton
-import androidx.wear.compose.material3.Icon
 import androidx.wear.compose.material3.MaterialTheme
-import androidx.wear.compose.material3.SuccessConfirmationDialog
 import androidx.wear.compose.material3.Text
-import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.google.android.horologist.auth.composables.material3.R
 import com.google.android.horologist.auth.composables.material3.models.AccountUiModel
-import com.google.android.horologist.auth.composables.material3.theme.HorologistMaterialTheme
 import com.google.android.horologist.compose.layout.ScreenScaffold
-import com.google.android.horologist.images.base.paintable.DrawableResPaintable
 import com.google.android.horologist.images.base.paintable.ImageVectorPaintable.Companion.asPaintable
 import com.google.android.horologist.images.base.paintable.Paintable
 import java.time.Duration

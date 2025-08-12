@@ -98,6 +98,8 @@ dependencies {
     api(libs.compose.ui)
 
     implementation(projects.images.coil)
+//    implementation(projects.auth.composables)
+    // TODO use a common module for the AccountUiModel POJO instead of relying on auth-composables
 
     implementation(libs.compose.foundation.foundation)
     implementation(libs.compose.foundation.foundation.layout)

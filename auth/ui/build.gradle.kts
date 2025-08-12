@@ -95,7 +95,7 @@ metalava {
 
 dependencies {
 
-    api(projects.auth.composables)
+    api(projects.auth.composablesMaterial3)
     api(projects.auth.data)
     api(projects.composeLayout)
 
@@ -105,6 +105,7 @@ dependencies {
     api(libs.kotlinx.coroutines.core)
     api(libs.wearcompose.foundation)
 
+    debugImplementation(projects.auth.composables) // for SignInPromptScreenPreview
     implementation(platform(libs.compose.bom))
     implementation(projects.composeMaterial)
     implementation(projects.images.coil)
