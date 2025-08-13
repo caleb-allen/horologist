@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.google.android.horologist.auth.composables.material3.R
+import com.google.android.horologist.auth.composables.material3.theme.HorologistMaterialTheme
 import com.google.android.horologist.compose.layout.ScreenScaffold
 
 private const val AVATAR_BACKGROUND_COLOR = 0xFF3C4043
@@ -58,35 +59,36 @@ public fun SignInPlaceholderScreen(
     val configuration = LocalConfiguration.current
     val horizontalPadding = (configuration.screenWidthDp * HORIZONTAL_PADDING_SCREEN_PERCENTAGE).dp
     val bottomPadding = (configuration.screenHeightDp * BOTTOM_PADDING_SCREEN_PERCENTAGE).dp
+    HorologistMaterialTheme {
+        ScreenScaffold(timeText = {}) {
+            Column(
+                modifier = modifier
+                    .fillMaxSize()
+                    .padding(horizontal = horizontalPadding)
+                    .padding(bottom = bottomPadding),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(60.dp)
+                        .background(
+                            color = Color(AVATAR_BACKGROUND_COLOR),
+                            shape = CircleShape,
+                        ),
+                )
 
-    ScreenScaffold(timeText = {}) {
-        Column(
-            modifier = modifier
-                .fillMaxSize()
-                .padding(horizontal = horizontalPadding)
-                .padding(bottom = bottomPadding),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(60.dp)
-                    .background(
-                        color = Color(AVATAR_BACKGROUND_COLOR),
-                        shape = CircleShape,
-                    ),
-            )
-
-            Text(
-                text = message,
-                modifier = Modifier
-                    .padding(top = 8.dp)
-                    .fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 1,
-                style = MaterialTheme.typography.title3,
-            )
+                Text(
+                    text = message,
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                    style = MaterialTheme.typography.title3,
+                )
+            }
         }
     }
 }

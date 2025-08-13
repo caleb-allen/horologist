@@ -52,6 +52,10 @@ object AuthUserRepositoryStreamlineImpl : AuthUserRepository {
                         displayName = "John",
                         email = "john@example.com",
                     ),
+                    AuthUser(
+                        displayName = "Timothy Andrews",
+                        email = "timandrews123@example.com",
+                    ),
                 )
             }
         }

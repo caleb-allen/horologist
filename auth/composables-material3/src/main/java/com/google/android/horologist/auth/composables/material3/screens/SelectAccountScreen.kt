@@ -77,6 +77,7 @@ public fun SelectAccountScreen(
         }
         accounts.forEachIndexed { index, account ->
             item {
+                // TODO caleballen extract this to AccountChip composable
                 Button(
                     onClick = { onAccountClicked(index, account) },
                     modifier = Modifier
