@@ -17,6 +17,7 @@
 package com.google.android.horologist.auth.composables.material3.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,14 +38,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.dialog.DialogDefaults
 import androidx.wear.compose.material3.Dialog
 import androidx.wear.compose.material3.MaterialTheme
@@ -90,7 +89,8 @@ public fun SignedInConfirmationScreen(
             modifier = modifier,
             name = name,
             email = email,
-            avatar = avatar ?: defaultAvatar,
+            avatar = avatar,
+            defaultAvatar = defaultAvatar
         )
     }
 }
@@ -124,7 +124,8 @@ internal fun SignedInConfirmationDialogContent(
     modifier: Modifier = Modifier,
     name: String? = null,
     email: String? = null,
-    avatar: Paintable
+    avatar: Paintable? = null,
+    defaultAvatar: Paintable = Icons.Default.AccountCircle.asPaintable(),
 ) {
     val configuration = LocalConfiguration.current
     val topPadding = (configuration.screenHeightDp * TOP_PADDING_SCREEN_PERCENTAGE).dp
@@ -149,25 +150,20 @@ internal fun SignedInConfirmationDialogContent(
                 modifier = Modifier
                     .padding(4.dp)
                     .size(96.dp)
-                    .clip(MaterialShapes.Pill.toShape()),
+                    .clip(MaterialShapes.Pill.toShape())
+                    .background(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ,
                 contentAlignment = Alignment.Center,
             ) {
+                val painter = (avatar ?: defaultAvatar).rememberPainter()
+
                 if (avatar != null) {
-                    Image(
-                        modifier = Modifier.fillMaxSize(),
-                        painter = avatar.rememberPainter(),
+                    Image(modifier = Modifier, painter = painter, contentDescription = null, contentScale = ContentScale.FillBounds)
+                } else {
+                    androidx.compose.material3.Icon(
+                        painter = painter,
                         contentDescription = null,
-                        contentScale = ContentScale.FillBounds,
-                    )
-                } else if (hasName) {
-                    Text(
-                        text = name!!.first().uppercase(),
-                        modifier = Modifier
-                            .align(Alignment.Center)
-                            .fillMaxWidth(),
-                        color = Color(AVATAR_TEXT_COLOR),
-                        fontSize = 24.sp,
-                        textAlign = TextAlign.Center,
+                        modifier = Modifier.size(48.dp),
                     )
                 }
             }
