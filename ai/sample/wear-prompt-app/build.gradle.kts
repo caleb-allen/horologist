@@ -54,6 +54,8 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -72,6 +74,18 @@ android {
             )
     }
 
+    packaging {
+        resources {
+            excludes +=
+                listOf(
+                    "/META-INF/AL2.0",
+                    "/META-INF/LGPL2.1",
+                    "/META-INF/INDEX.LIST",
+                    "/META-INF/DEPENDENCIES",
+                )
+        }
+    }
+
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
@@ -85,15 +99,20 @@ android {
 dependencies {
     api(projects.annotations)
 
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
     implementation(platform(libs.compose.bom))
 
     implementation(projects.ai.sample.wearCore)
+    implementation(projects.ai.sample.wearGeminiLib)
 
     implementation(projects.ai.ui)
     implementation(projects.ai.sample.core)
     implementation(projects.composables)
     implementation(projects.composeLayout)
     implementation(projects.composeMaterial)
+    implementation(libs.coil)
+    implementation(libs.coil.svg)
 
     implementation(libs.dagger.hiltandroid)
     implementation(libs.androidx.wear.input)
